@@ -1,0 +1,51 @@
+.item-page {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 63px;
+  padding-right: 63px;
+}
+
+.item-page__back {
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 16px;
+  color: #2962FF;
+}
+
+.item__name {
+  font-size: 28px;
+  line-height: 33px;
+}
+
+.item__attr {
+  width: 900px;
+  margin-bottom: 40px;
+
+  border-collapse: collapse;
+  border: none;
+
+  td {
+    padding: 0;
+  }
+
+  tr:nth-child(n+2) td {
+    padding-top: 40px;
+  }
+}
+
+.item__missions {
+  max-width: 700px;
+}
+
+.item__missions-title {
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.item__missions-item {
+  font-size: 16px;
+  line-height: 32px;
+  color: #2962FF;
+}

@@ -1,0 +1,50 @@
+<main class="cat-page">
+  <section class="cat">
+    <h1 class="cat__title">SpaceX Ships</h1>
+
+    <div *ngIf="loading">
+      Loading...
+    </div>
+    <div *ngIf="error">
+      Error!
+    </div>
+    <ul *ngIf="ships" class="ships-list">
+      <li *ngFor="let ship of ships | filter: filters | paginate: {
+        itemsPerPage: 5,
+        currentPage: p
+      }" class="ship-item">
+        <div class="ship-item__name">
+          <a [routerLink]="['ship/', ship.id]">{{ship.name}}</a>
+        </div>
+        <table class="ship-item__attr">
+          <tr>
+            <td>Тип</td>
+            <td>{{ship.type}}</td>
+            <td>Порт</td>
+            <td>{{ship.home_port}}</td>
+          </tr>
+        </table>
+      </li>
+    </ul>
+    <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel=""></pagination-controls>
+  </section>
+
+  <section class="filter">
+    <h2>Фильтры</h2>
+    <input class="filter__name-input" [(ngModel)]="fields.name" (ngModelChange)="updateFilters()" type="text"
+      placeholder="Название">
+    <div>
+
+      <ng-multiselect-dropdown [placeholder]="'Порт'" [data]="dropdownList" [(ngModel)]="fields.port"
+        [settings]="dropdownSettings" (onSelect)="updateFilters()" (onDeSelect)="updateFilters()"
+        (onFilterChange)="updateFilters()">
+      </ng-multiselect-dropdown>
+    </div>
+    <p class="filter__type-title">Тип</p>
+    <label *ngFor="let type of types" class="filter__radio-item">
+      <input [(ngModel)]="fields.type" (ngModelChange)="updateFilters()" type="radio" name="ship-type" id=""
+        value="{{type}}" class="filter__type-input">
+      {{type}}
+    </label>
+  </section>
+</main>

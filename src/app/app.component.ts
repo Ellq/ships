@@ -1,3 +1,4 @@
+import { ShipsPageComponent } from './ships-page/ships-page.component';
 import { Component } from '@angular/core';
 
 @Component({

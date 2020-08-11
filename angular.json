@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ships"
+    }
+  },
+  "defaultProject": "ships",
+  "cli": {
+    "analytics": "d44b5fe2-fb46-46e1-a30e-a9577e8d50f7"
+  }
 }
